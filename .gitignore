@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+.vs/rplidar_a1_gui/v15/.suo
+*.db
+*.opendb
+*.ipch
+*.tlog
+*.log
+*.pdb
+*.ilk
