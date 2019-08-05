@@ -10,6 +10,15 @@ class rplidar_a1_gui : public QMainWindow
 public:
 	rplidar_a1_gui(QWidget *parent = Q_NULLPTR);
 
+private slots:
+    void on_pushButton_uart_rfresh_clicked();
+
+    void on_pushButton_uart_sw_clicked();
+
+    void on_pushButton_lidar_sw_clicked();
+
+    void on_pushButton_lidar_rfresh_clicked();
+
 private:
 	Ui::rplidar_a1_guiClass ui;
 };
