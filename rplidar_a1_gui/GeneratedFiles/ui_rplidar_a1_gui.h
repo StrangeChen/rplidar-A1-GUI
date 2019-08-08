@@ -266,7 +266,7 @@ public:
 
     void retranslateUi(QMainWindow *rplidar_a1_guiClass)
     {
-        rplidar_a1_guiClass->setWindowTitle(QApplication::translate("rplidar_a1_guiClass", "rplidar_a1_gui", nullptr));
+        rplidar_a1_guiClass->setWindowTitle(QApplication::translate("rplidar_a1_guiClass", "\351\233\267\350\276\276", nullptr));
         groupBox->setTitle(QApplication::translate("rplidar_a1_guiClass", "\351\200\232\350\256\257\344\270\262\345\217\243\351\200\211\346\213\251", nullptr));
         label_29->setText(QApplication::translate("rplidar_a1_guiClass", "\346\263\242\347\211\271\347\216\207", nullptr));
         label_30->setText(QApplication::translate("rplidar_a1_guiClass", "\344\270\262\345\217\243\345\217\267", nullptr));
