@@ -46,15 +46,15 @@ public:
     QVBoxLayout *verticalLayout_2;
     QGridLayout *gridLayout;
     QLabel *label_33;
-    QPushButton *pushButton_lidar_sw;
+    QComboBox *comboBox_rplidar;
     QPushButton *pushButton_lidar_rfresh;
-    QComboBox *comboBox_com_2;
+    QPushButton *pushButton_lidar_sw;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_32;
-    QLineEdit *lineEdit_d;
-    QLabel *label_31;
     QLineEdit *lineEdit_a;
-    RplidarWidget *widget;
+    QLabel *label_31;
+    QLineEdit *lineEdit_d;
+    RplidarWidget *rplidarWidget;
 
     void setupUi(QMainWindow *rplidar_a1_guiClass)
     {
@@ -64,9 +64,10 @@ public:
         centralWidget = new QWidget(rplidar_a1_guiClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout = new QVBoxLayout(centralWidget);
-        verticalLayout->setSpacing(6);
+        verticalLayout->setSpacing(4);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(-1, -1, -1, 6);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(5);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -157,22 +158,11 @@ public:
 
         gridLayout->addWidget(label_33, 0, 0, 1, 1);
 
-        pushButton_lidar_sw = new QPushButton(groupBox_2);
-        pushButton_lidar_sw->setObjectName(QStringLiteral("pushButton_lidar_sw"));
-        sizePolicy1.setHeightForWidth(pushButton_lidar_sw->sizePolicy().hasHeightForWidth());
-        pushButton_lidar_sw->setSizePolicy(sizePolicy1);
-        pushButton_lidar_sw->setMinimumSize(QSize(0, 33));
-        pushButton_lidar_sw->setBaseSize(QSize(0, 0));
-        pushButton_lidar_sw->setLayoutDirection(Qt::LeftToRight);
-        pushButton_lidar_sw->setStyleSheet(QLatin1String("border:1px solid gray;\n"
-"        border-radius:10px;\n"
-"        padding:2px 4px;"));
-        pushButton_lidar_sw->setIconSize(QSize(12, 12));
-        pushButton_lidar_sw->setCheckable(true);
-        pushButton_lidar_sw->setChecked(false);
-        pushButton_lidar_sw->setAutoExclusive(false);
+        comboBox_rplidar = new QComboBox(groupBox_2);
+        comboBox_rplidar->setObjectName(QStringLiteral("comboBox_rplidar"));
+        comboBox_rplidar->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
 
-        gridLayout->addWidget(pushButton_lidar_sw, 1, 1, 1, 1);
+        gridLayout->addWidget(comboBox_rplidar, 0, 1, 1, 2);
 
         pushButton_lidar_rfresh = new QPushButton(groupBox_2);
         pushButton_lidar_rfresh->setObjectName(QStringLiteral("pushButton_lidar_rfresh"));
@@ -189,13 +179,24 @@ public:
         pushButton_lidar_rfresh->setChecked(false);
         pushButton_lidar_rfresh->setAutoExclusive(false);
 
-        gridLayout->addWidget(pushButton_lidar_rfresh, 1, 2, 1, 1);
+        gridLayout->addWidget(pushButton_lidar_rfresh, 1, 1, 1, 1);
 
-        comboBox_com_2 = new QComboBox(groupBox_2);
-        comboBox_com_2->setObjectName(QStringLiteral("comboBox_com_2"));
-        comboBox_com_2->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
+        pushButton_lidar_sw = new QPushButton(groupBox_2);
+        pushButton_lidar_sw->setObjectName(QStringLiteral("pushButton_lidar_sw"));
+        sizePolicy1.setHeightForWidth(pushButton_lidar_sw->sizePolicy().hasHeightForWidth());
+        pushButton_lidar_sw->setSizePolicy(sizePolicy1);
+        pushButton_lidar_sw->setMinimumSize(QSize(0, 33));
+        pushButton_lidar_sw->setBaseSize(QSize(0, 0));
+        pushButton_lidar_sw->setLayoutDirection(Qt::LeftToRight);
+        pushButton_lidar_sw->setStyleSheet(QLatin1String("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;"));
+        pushButton_lidar_sw->setIconSize(QSize(12, 12));
+        pushButton_lidar_sw->setCheckable(true);
+        pushButton_lidar_sw->setChecked(false);
+        pushButton_lidar_sw->setAutoExclusive(false);
 
-        gridLayout->addWidget(comboBox_com_2, 0, 1, 1, 2);
+        gridLayout->addWidget(pushButton_lidar_sw, 1, 2, 1, 1);
 
 
         verticalLayout_2->addLayout(gridLayout);
@@ -212,10 +213,10 @@ public:
 
         horizontalLayout_2->addWidget(label_32);
 
-        lineEdit_d = new QLineEdit(groupBox_2);
-        lineEdit_d->setObjectName(QStringLiteral("lineEdit_d"));
+        lineEdit_a = new QLineEdit(groupBox_2);
+        lineEdit_a->setObjectName(QStringLiteral("lineEdit_a"));
 
-        horizontalLayout_2->addWidget(lineEdit_d);
+        horizontalLayout_2->addWidget(lineEdit_a);
 
         label_31 = new QLabel(groupBox_2);
         label_31->setObjectName(QStringLiteral("label_31"));
@@ -225,10 +226,10 @@ public:
 
         horizontalLayout_2->addWidget(label_31);
 
-        lineEdit_a = new QLineEdit(groupBox_2);
-        lineEdit_a->setObjectName(QStringLiteral("lineEdit_a"));
+        lineEdit_d = new QLineEdit(groupBox_2);
+        lineEdit_d->setObjectName(QStringLiteral("lineEdit_d"));
 
-        horizontalLayout_2->addWidget(lineEdit_a);
+        horizontalLayout_2->addWidget(lineEdit_d);
 
         horizontalLayout_2->setStretch(0, 1);
         horizontalLayout_2->setStretch(1, 2);
@@ -247,12 +248,12 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        widget = new RplidarWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setMinimumSize(QSize(600, 600));
-        widget->setAutoFillBackground(false);
+        rplidarWidget = new RplidarWidget(centralWidget);
+        rplidarWidget->setObjectName(QStringLiteral("rplidarWidget"));
+        rplidarWidget->setMinimumSize(QSize(600, 600));
+        rplidarWidget->setAutoFillBackground(false);
 
-        verticalLayout->addWidget(widget);
+        verticalLayout->addWidget(rplidarWidget);
 
         verticalLayout->setStretch(0, 1);
         verticalLayout->setStretch(1, 4);
@@ -277,8 +278,8 @@ public:
         pushButton_uart_rfresh->setText(QApplication::translate("rplidar_a1_guiClass", "\345\210\267\346\226\260", nullptr));
         groupBox_2->setTitle(QApplication::translate("rplidar_a1_guiClass", "\351\233\267\350\276\276", nullptr));
         label_33->setText(QApplication::translate("rplidar_a1_guiClass", "\344\270\262\345\217\243\345\217\267", nullptr));
-        pushButton_lidar_sw->setText(QApplication::translate("rplidar_a1_guiClass", "\345\274\200\345\247\213", nullptr));
         pushButton_lidar_rfresh->setText(QApplication::translate("rplidar_a1_guiClass", "\345\210\267\346\226\260", nullptr));
+        pushButton_lidar_sw->setText(QApplication::translate("rplidar_a1_guiClass", "\345\274\200\345\247\213", nullptr));
         label_32->setText(QApplication::translate("rplidar_a1_guiClass", "\350\247\222\345\272\246", nullptr));
         label_31->setText(QApplication::translate("rplidar_a1_guiClass", "\350\267\235\347\246\273", nullptr));
     } // retranslateUi

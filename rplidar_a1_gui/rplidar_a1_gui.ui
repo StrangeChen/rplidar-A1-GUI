@@ -15,6 +15,12 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,4">
+    <property name="spacing">
+     <number>4</number>
+    </property>
+    <property name="bottomMargin">
+     <number>6</number>
+    </property>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,3">
       <property name="spacing">
@@ -189,55 +195,14 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="pushButton_lidar_sw">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>33</height>
-              </size>
-             </property>
-             <property name="baseSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border:1px solid gray;
-        border-radius:10px;
-        padding:2px 4px;</string>
-             </property>
-             <property name="text">
-              <string>开始</string>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>12</width>
-               <height>12</height>
-              </size>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
-             </property>
-             <property name="autoExclusive">
-              <bool>false</bool>
+           <item row="0" column="1" colspan="2">
+            <widget class="QComboBox" name="comboBox_rplidar">
+             <property name="sizeAdjustPolicy">
+              <enum>QComboBox::AdjustToMinimumContentsLength</enum>
              </property>
             </widget>
            </item>
-           <item row="1" column="2">
+           <item row="1" column="1">
             <widget class="QPushButton" name="pushButton_lidar_rfresh">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -285,10 +250,51 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="1" colspan="2">
-            <widget class="QComboBox" name="comboBox_com_2">
-             <property name="sizeAdjustPolicy">
-              <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="pushButton_lidar_sw">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>33</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
+             </property>
+             <property name="text">
+              <string>开始</string>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>12</width>
+               <height>12</height>
+              </size>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -315,7 +321,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_d"/>
+            <widget class="QLineEdit" name="lineEdit_a"/>
            </item>
            <item>
             <widget class="QLabel" name="label_31">
@@ -342,7 +348,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_a"/>
+            <widget class="QLineEdit" name="lineEdit_d"/>
            </item>
           </layout>
          </item>
@@ -352,7 +358,7 @@
      </layout>
     </item>
     <item>
-     <widget class="RplidarWidget" name="widget" native="true">
+     <widget class="RplidarWidget" name="rplidarWidget" native="true">
       <property name="minimumSize">
        <size>
         <width>600</width>
