@@ -92,4 +92,7 @@
   <ItemGroup>
     <None Include="cpp.hint" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="radar2.ico" />
+  </ItemGroup>
 </Project>

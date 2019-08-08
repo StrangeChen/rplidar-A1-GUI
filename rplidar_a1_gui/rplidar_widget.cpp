@@ -22,6 +22,7 @@ RplidarWidget::~RplidarWidget()
 
 void RplidarWidget::showPoint(QList<QPoint> p)
 {
+	//m_pieRotate -= 30;
 	m_points = p;
 	update();
 }
@@ -47,7 +48,6 @@ void RplidarWidget::paintEvent(QPaintEvent * event)
 
 	//转动部分
 	//---//线
-	m_pieRotate -= 30;
 	qreal x = m_drawArea.center().x() + (qreal)len / 2 * cos(-m_pieRotate * 3.14159 / 180);
 	qreal y = m_drawArea.center().y() + (qreal)len / 2 * sin(-m_pieRotate * 3.14159 / 180);
 	painter.setPen(QPen(Qt::white));
@@ -61,6 +61,9 @@ void RplidarWidget::paintEvent(QPaintEvent * event)
 	painter.setBrush(QBrush(gradient));
 	painter.setPen(Qt::NoPen);
 	painter.drawPie(m_drawArea, m_pieRotate * 16, 90 * 16);
+	painter.setPen(Qt::white);
+	painter.drawText(m_drawArea, Qt::AlignTop | Qt::AlignHCenter, " 270 ");
+	painter.drawText(m_drawArea, Qt::AlignRight | Qt::AlignVCenter, "0  ");
 
 	if (!m_points.isEmpty())
 	{
@@ -70,7 +73,7 @@ void RplidarWidget::paintEvent(QPaintEvent * event)
 			//x()-->angle y()-->distance
 			int offsetX = m_drawArea.center().x() + cos(m_points[i].x() *PI / 180.0)*m_points[i].y() / 1000 * len / 2;
 			int offsetY = m_drawArea.center().y() + sin(m_points[i].x() *PI / 180.0)*m_points[i].y() / 1000 * len / 2;
-			painter.drawPoint(offsetX, offsetY);
+			painter.drawPoint(offsetX, offsetY);			
 		}
 	}
 }
@@ -94,7 +97,7 @@ void RplidarWidget::timerEvent(QTimerEvent * event)
 {
 	if (m_timerId == event->timerId())
 	{
-		//m_pieRotate -= 10;
-		//update();
+		m_pieRotate -= 10;
+		update();
 	}
 }

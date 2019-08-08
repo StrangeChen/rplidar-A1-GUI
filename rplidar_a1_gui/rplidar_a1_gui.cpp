@@ -15,6 +15,8 @@ rplidar_a1_gui::rplidar_a1_gui(QWidget *parent)
 	qss.append("QTabBar::tab:hover{color:#4c73a8; background:#FFFFFF;}QTabBar::tab:selected{color:#4c73a8; background:#FFFFFF;}");
 	qApp->setStyleSheet(qss);
 
+	setWindowIcon(QIcon("radar2.ico"));
+
 	currentSerialPort = new QSerialPort(this);
 	rplidar = new Rplidar();
 	rplidarThread = new QThread(this);
@@ -23,7 +25,6 @@ rplidar_a1_gui::rplidar_a1_gui(QWidget *parent)
 	rplidarThread->start();
 
 	uartInit();
-	qDebug() << u8"朱线程" << QThread::currentThread() << endl;
 	qDebug() << rplidarThread->isRunning() << endl;
 	qDebug() << rplidar->thread() << endl;
 	// 雷达开始
